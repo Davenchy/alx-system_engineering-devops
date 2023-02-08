@@ -16,3 +16,4 @@
 - Create bash script `13-symbolic_link` to create symbolic_link of `/bin/ls` to the current_working_directory under the name `__ls__`
 - Create bash script `14-copy_html` to copy all html files in current directory to the parent directory only update!!
 - Create bash script `100-lets_move` to move any file starts with uppercase letter to `/tmp/u` directory
+- Create bash script `101-clean_emacs` to remove all temp files created by emacs in the current directory [files ends with `~`]
