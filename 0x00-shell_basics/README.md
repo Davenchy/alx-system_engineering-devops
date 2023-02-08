@@ -12,3 +12,4 @@
 - Create bash script `9-firstdirdelete` to remove the directory `/tmp/my_first_directory`
 - Create bash script `10-back` to change directory to the previous one
 - Create bash script `11-lists` to list all files even the hidden ones in the current directory, the parent directory and the `/boot` directory
+- Create bash script `12-file_type` to print the file type of `/tmp/iamafile`
