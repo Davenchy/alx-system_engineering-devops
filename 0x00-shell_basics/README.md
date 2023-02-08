@@ -7,3 +7,4 @@
 - Create bash script `4-listmorefiles` to list all files including the hidden files in the current working directory in the long format
 - Create bash script `5-listfilesdigitonly` to list all files including the hidden files in the current working directory in the long format also display gids in digital formats
 - Create bash script `6-firstdirectory` to create a new directory `/tmp/my_first_directory`
+- Create bash script `7-movethatfile` to move the file `/tmp/betty` to the directory `/tmp/my_first_directory`
