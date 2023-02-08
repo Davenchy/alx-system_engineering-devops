@@ -17,3 +17,4 @@
 - Create bash script `14-copy_html` to copy all html files in current directory to the parent directory only update!!
 - Create bash script `100-lets_move` to move any file starts with uppercase letter to `/tmp/u` directory
 - Create bash script `101-clean_emacs` to remove all temp files created by emacs in the current directory [files ends with `~`]
+- Create bash script `102-tree` to create directories `welcome/`, `welcome/to` and `welcome/to/school` in the current directories with only one space character.
