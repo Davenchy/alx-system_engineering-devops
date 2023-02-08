@@ -1,2 +1,2 @@
 #!/bin/bash
-echo && ls -am && echo
+echo -e "\n$(ls -am)\n"
