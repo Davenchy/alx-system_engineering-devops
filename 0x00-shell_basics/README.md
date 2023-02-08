@@ -13,3 +13,4 @@
 - Create bash script `10-back` to change directory to the previous one
 - Create bash script `11-lists` to list all files even the hidden ones in the current directory, the parent directory and the `/boot` directory
 - Create bash script `12-file_type` to print the file type of `/tmp/iamafile`
+- Create bash script `13-symbolic_link` to create symbolic_link of `/bin/ls` to the current_working_directory under the name `__ls__`
