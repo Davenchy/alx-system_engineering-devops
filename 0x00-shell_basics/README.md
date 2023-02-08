@@ -5,4 +5,4 @@
 - Create bash script `2-bring_me_home` to change the current directory to the user's home directory
 - Create bash script `3-listfiles` to list files in the current working directory in the long format
 - Create bash script `4-listmorefiles` to list all files including the hidden files in the current working directory in the long format
-
+- Create bash script `5-listfilesdigitonly` to list all files including the hidden files in the current working directory in the long format also display gids in digital formats
