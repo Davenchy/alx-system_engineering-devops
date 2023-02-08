@@ -18,3 +18,8 @@
 - Create bash script `100-lets_move` to move any file starts with uppercase letter to `/tmp/u` directory
 - Create bash script `101-clean_emacs` to remove all temp files created by emacs in the current directory [files ends with `~`]
 - Create bash script `102-tree` to create directories `welcome/`, `welcome/to` and `welcome/to/school` in the current directories with only one space character.
+- Create bash script `103-commas` to list all files in current working directory with the following rules
+    - Directory names ends with `/`
+    - Hidden files and directories are included
+    - The names is listed in alpha ordered while `.` and `..` listed at the beginning
+    - Names start with digit come first then letters
