@@ -11,3 +11,4 @@
 - Create bash script `8-firstdelete` to remove the file `/tmp/my_first_directory/betty`
 - Create bash script `9-firstdirdelete` to remove the directory `/tmp/my_first_directory`
 - Create bash script `10-back` to change directory to the previous one
+- Create bash script `11-lists` to list all files even the hidden ones in the current directory, the parent directory and the `/boot` directory
