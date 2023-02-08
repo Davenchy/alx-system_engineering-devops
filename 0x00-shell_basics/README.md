@@ -9,3 +9,4 @@
 - Create bash script `6-firstdirectory` to create a new directory `/tmp/my_first_directory`
 - Create bash script `7-movethatfile` to move the file `/tmp/betty` to the directory `/tmp/my_first_directory`
 - Create bash script `8-firstdelete` to remove the file `/tmp/my_first_directory/betty`
+- Create bash script `9-firstdirdelete` to remove the directory `/tmp/my_first_directory`
