@@ -7,3 +7,4 @@
 - Create script `4-empty` to create an empty file called `hello`
 - Create script `5-execute` to add execute permission to the owner of the file `hello`
 - Create script `6-multiple_permissions` to add execute permission for the owner and the group while read permssion for others to the file `hello`
+- Create script `7-everybody` add execute permission to all users for the file `hello`
