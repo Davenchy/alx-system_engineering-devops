@@ -13,3 +13,4 @@
 - Create script `10-mirror_permissions` to set the mode of the file `hello` the same as the file `olleh`
 - Create script `11-directories_permissions` to set execute permissions to all users for all subdirectories and exclude regualar files
 - Create script `12-directory_permissions` to create a new directory `my_dir` with permission mode `751`
+- Create script `13-change_group` to changes the group owner to `school` of the file `hello`
