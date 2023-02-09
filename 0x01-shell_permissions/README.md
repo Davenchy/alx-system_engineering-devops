@@ -4,3 +4,4 @@
 - Create script `1-who_am_i` to print the current username
 - Create script `2-groups` to print all the groups the current user is part of
 - Create script `3-new_owner` to set `betty` as an owner to the file `hello`
+- Create script `4-empty` to create an empty file called `hello`
