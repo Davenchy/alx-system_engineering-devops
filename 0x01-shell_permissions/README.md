@@ -9,3 +9,4 @@
 - Create script `6-multiple_permissions` to add execute permission for the owner and the group while read permssion for others to the file `hello`
 - Create script `7-everybody` to add execute permission to all users for the file `hello`
 - Create script `8-James_Bond` to set no permissions to owner and group while full permissions to others for the file `hello`
+- Create script `9-John_Doe` to set the file `hello` permissions to `rwxr-x-wx`
