@@ -11,3 +11,4 @@
 - Create script `8-James_Bond` to set no permissions to owner and group while full permissions to others for the file `hello`
 - Create script `9-John_Doe` to set the file `hello` permissions to `rwxr-x-wx`
 - Create script `10-mirror_permissions` to set the mode of the file `hello` the same as the file `olleh`
+- Create script `11-directories_permissions` to set execute permissions to all users for all subdirectories and exclude regualar files
