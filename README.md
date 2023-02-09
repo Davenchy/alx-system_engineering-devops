@@ -2,5 +2,5 @@
 
 ## Contents
 
-1- Shell and Bash basics
-2- Shell Permissions
+1. Shell and Bash basics
+2. Shell Permissions
