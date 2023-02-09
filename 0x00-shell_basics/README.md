@@ -1,4 +1,4 @@
-# 0x00. Shell, Basics
+# 0x00. Shell and Bash basics
 
 - Create bash script `0-current_working_directory` to print current working directory path
 - Create bash script `1-listit` to list the contents of the current directory
