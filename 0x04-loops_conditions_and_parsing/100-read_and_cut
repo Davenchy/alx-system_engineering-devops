@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This scripts prints only username, userId, home path for each user in passwd
+while read -r line; do
+  IFS=: read -ra array <<< "$line"
+  echo "${array[0]}:${array[2]}:${array[5]}"
+done < /etc/passwd
