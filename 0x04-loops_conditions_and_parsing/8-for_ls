@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# display current working directory files without the part before the dash
+for file in *; do
+	file=$(echo "$file" | cut -d- -f2)
+	echo "$file"
+done
