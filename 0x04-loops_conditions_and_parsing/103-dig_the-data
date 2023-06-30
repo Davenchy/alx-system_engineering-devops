@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#! This script groups ips in the server log and prints COUNT IP STATUS_CODE
+awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -gr
