@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This scripts implements FizzBuzz program
+for i in {1..100}
+do
+	created=false
+	[ $((i%3)) -eq 0 ] && echo -n "Fizz" && created=true
+	[ $((i%5)) -eq 0 ] && echo -n "Buzz" && created=true
+	$created && echo || echo "$i"
+	
+done
