@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script sends SEGTERM using pkill for process 7-highlander
+pkill -INT -f 7-highlander
