@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script prints a msg and other msgs when receiving SEGs
+
+# create a file with the current pid
+echo "$$" > /var/run/myscript.pid
+
+# handle SIGTERM
+trap "echo 'I hate the kill command' && clean_and_exit" TERM
+trap clean_and_exit QUIT
+trap "echo 'Y U no love me?!'" INT
+
+function clean_and_exit {
+	rm -f /var/run/myscript.pid
+	exit 0
+}
+
+while true; do echo "To infinity and beyond"; sleep 2; done
