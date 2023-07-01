@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script prints a msg and act to SEGTERM with another msg
+trap "exit" INT
+trap "echo I am invincible!!!" TERM
+while true; do echo "To infinity and beyond"; sleep 2; done

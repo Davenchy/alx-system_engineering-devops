@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-# This script sends SEGINT using pkill for process 4-to_infinity_and_beyond
+# This script sends SEGTERM using pkill for process 4-to_infinity_and_beyond
 pkill -f 4-to_infinity_and_beyond
