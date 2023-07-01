@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script prints a msg infinity times and respond by exit to SEGINT
 trap "exit" INT
-while true; do echo "To infinity and beyond"; done
+while true; do echo "To infinity and beyond"; sleep 2; done
