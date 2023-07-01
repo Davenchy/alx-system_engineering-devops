@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script sends SEGINT to all bash processes
+for pid in $(pgrep bash); do if [ "$pid" -ne $$ ]; then kill "$pid"; fi; done
