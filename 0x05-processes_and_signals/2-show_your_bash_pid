@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# This script prints current running process tree
+# This script prints the current bash processes using ps
 # shellcheck disable=SC2009
 ps -uf | grep bash 
