@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This is a daemon script that runs in the background
+while true; do echo "I am alive!" >> $/tmp/my_process; sleep 2; done
