@@ -9,7 +9,7 @@ function start_process {
 }
 
 function kill_process {
-		kill $(cat $PID_FILE)
+		kill "$(cat $PID_FILE)"
 		rm -f $PID_FILE
 }
 
