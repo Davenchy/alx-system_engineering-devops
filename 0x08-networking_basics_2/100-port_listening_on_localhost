@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script listens on localhost for port 98 using netcat, sudo is needed
+nc -l -p 98
