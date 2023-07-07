@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script well change the ip addresses for localhost and facebook.com
+# This script changes the ip addresses for localhost and facebook.com
 
 cp /etc/hosts ~/hosts.new
 sed -i 's/127.0.0.1/127.0.0.2/' ~/hosts.new
