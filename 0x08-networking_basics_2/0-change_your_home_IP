@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # This script changes the ip addresses for localhost and facebook.com
 
-thosts="/hosts.tmp"
-cp /etc/hosts $thosts
-sed -i 's/127\.0\.0\.1.*$//' $thosts
-echo "127.0.0.2 localhost" >> $thosts
-echo "8.8.8.8 facebook.com" >> $thosts
-mv -f $thosts /etc/hosts
+hosts="/hosts.new"
+cp /etc/hosts $hosts
+sed -i 's/^.*127\.0\.0\.1.*$//' $hosts
+echo "127.0.0.2 localhost" >> $hosts
+echo "8.8.8.8 facebook.com" >> $hosts
+cp -f $hosts /etc/hosts
