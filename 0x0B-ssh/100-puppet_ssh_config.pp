@@ -1,8 +1,11 @@
-import ssh
+file { '/etc/ssh/ssh_config':
+  content => template('ssh_config.erb'),
+}
 
-class { 'ssh_config':
-  client_options => {
-    'Host 54.165.85.96' => {
+template { 'ssh_config.erb':
+  source    => 'ssh_config.erb'
+  variables => {
+    host_54_165_85_96 => {
       'User'                   => 'ubuntu',
       'PasswordAuthentication' => 'no',
       'IdentityFile'           => '~/.ssh/school',
