@@ -1,14 +1,14 @@
+notify { "The value is: ${file('/etc/ssh/ssh_config')}": }
 file { '/etc/ssh/ssh_config':
-  content => template('ssh_config.erb'),
-}
+  ensure  => present,
+  content =>
+    "${file('/etc/ssh/ssh_config')}
 
-template { 'ssh_config.erb':
-  source    => 'ssh_config.erb'
-  variables => {
-    host_54_165_85_96 => {
-      'User'                   => 'ubuntu',
-      'PasswordAuthentication' => 'no',
-      'IdentityFile'           => '~/.ssh/school',
-    }
-  }
+      Host 54.165.85.96
+        User ubuntu
+        PasswordAuthentication no
+        IdentityFile ~/.ssh/school",
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644'
 }
