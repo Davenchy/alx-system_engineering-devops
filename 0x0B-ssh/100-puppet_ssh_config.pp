@@ -1,4 +1,4 @@
-notify { "The value is: ${file('/etc/ssh/ssh_config')}": }
+# update ssh_config to authenticate ssh connection to server without password
 file { '/etc/ssh/ssh_config':
   ensure  => present,
   content =>
