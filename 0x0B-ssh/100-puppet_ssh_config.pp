@@ -1,3 +1,5 @@
+import ssh
+
 class { 'ssh_config':
   client_options => {
     'Host 54.165.85.96' => {
