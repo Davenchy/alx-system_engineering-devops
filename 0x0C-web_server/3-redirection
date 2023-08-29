@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 # Installs nginx on ubuntu server and configure NGINX server to redirect
-# /redirect_me to YouTube video page
-
-inject() {
-	# find <mark_text> in the <file> and append <text_to_inject> after it
-	# Usage: inject <mark_text> <text_to_inject> <file>
-	sudo sed -i "/$1/a\ $2" "$3"
-}
 
 # update local packages database and install NGINX
 sudo apt-get -y update
@@ -18,7 +11,7 @@ echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 # configure NGINX to redirect /redirect_me to YouTube video page
 tab="$(echo -e '\t')"
 url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-rule="\n${tab}rewrite ^/redirect_me\$ ${url} permanent;"
+rule="\n${tab}location /redirect_me {\n${tab}${tab}return 301 ${url};\n${tab}}"
 inject "server_name _;" "$rule" /etc/nginx/sites-enabled/default
 
 # start the NGINX service
