@@ -12,7 +12,7 @@ echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 tab="$(echo -e '\t')"
 url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 rule="\n${tab}location /redirect_me {\n${tab}${tab}return 301 ${url};\n${tab}}"
-inject "server_name _;" "$rule" /etc/nginx/sites-enabled/default
+sudo sed -i "server_name _;" "$rule" /etc/nginx/sites-enabled/default
 
 # start the NGINX service
 sudo service nginx start
