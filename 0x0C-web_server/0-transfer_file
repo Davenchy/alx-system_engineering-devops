@@ -11,4 +11,5 @@ server_address="$2"
 username="$3"
 identity_file="$4"
 
-scp -i "$identity_file" "$filepath" "$username@$server_address:~/"
+scp -o StrictHostKeyChecking=no -i "$identity_file"\
+	"$filepath" "$username@$server_address:~/"
