@@ -12,12 +12,12 @@ package { 'nginx':
 
 file { '/var/www/html/index.nginx-debian.html':
   ensure  => 'present',
-  content => 'Hello World!',
+  content => "Hello World!\n",
 }
 
 file { '/var/www/html/404.html':
   ensure  => 'present',
-  content => "Ceci n\'est pas une page",
+  content => "Ceci n\'est pas une page\n",
 }
 
 exec { 'configure nginx redirection':
