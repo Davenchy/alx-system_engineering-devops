@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This scripts copy a file from local to server using ssh
+
+if [ "$#" -lt 4 ]; then
+	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+	exit
+fi
+
+filepath="$1"
+server_address="$2"
+username="$3"
+identity_file="$4"
+
+scp -i "$identity_file" "$filepath" "$username@$server_address:~/"
