@@ -3,12 +3,6 @@
 # /redirect_me to YouTube video page
 # create 404 custom error page and configure NGINX to use it
 
-inject() {
-	# find <mark_text> in the <file> and append <text_to_inject> after it
-	# Usage: inject <mark_text> <text_to_inject> <file>
-	sudo sed -i "/$1/a\ $2" "$3"
-}
-
 # update local packages database and install NGINX
 sudo apt-get -y update
 sudo apt-get -y install nginx
@@ -22,13 +16,13 @@ echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 # configure NGINX to redirect /redirect_me to YouTube video page
 tab="$(echo -e '\t')"
 url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
-rule="\n${tab}rewrite ^/redirect_me\$ ${url} permanent;"
-inject "server_name _;" "$rule" /etc/nginx/sites-enabled/default
+rule="\n${tab}location /redirect_me {\n${tab}${tab}return 301 ${url};\n${tab}}"
+sudo sed -i "/server_name _;/a\ $rule" /etc/nginx/sites-enabled/default
 
 # configure NGINX to use custom error page
 mark_text="default_type application"
 text_to_inject="\n${tab}error_page 404 /404.html;"
-inject "$mark_text" "$text_to_inject" /etc/nginx/nginx.conf
+sudo sed -i "/$mark_text/a\ $text_to_inject" /etc/nginx/nginx.conf
 
 # start the NGINX service
 sudo service nginx start
