@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Installs nginx on ubuntu server and configure NGINX server to redirect
+# /redirect_me to YouTube video page
+
+# update local packages database and install NGINX
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# create index page
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
+# configure NGINX to redirect /redirect_me to YouTube video page
+tab="$(echo -e '\t')"
+url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+rule="\n${tab}location /redirect_me {\n${tab}${tab}return 301 $url;\n${tab}}"
+sudo sed -i "/server_name _;/a\ $rule" /etc/nginx/sites-enabled/default
+
+# start the NGINX service
+sudo service nginx start
