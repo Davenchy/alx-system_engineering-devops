@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script starts Apache2 server service on the container
+/etc/init.d/apache2 start
