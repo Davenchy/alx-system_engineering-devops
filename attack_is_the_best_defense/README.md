@@ -3,7 +3,7 @@
 ## Task 0
 
 - Just use wireshark with filter tcp.port = 587
-- Start listenening and execute the script `user+authenticating_into+server`
+- Start listenening and execute the script `user_authenticating_into_server`
 - Check the command line packets or search for password key word
 - The base64 password is `bXlwYXNzd29yZDk4OTgh7` use any online base64 encode/decode tool to get the password `mypassword9898!`
 
