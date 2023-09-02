@@ -7,6 +7,16 @@
 - Check the command line packets or search for password key word
 - The base64 password is `bXlwYXNzd29yZDk4OTgh7` use any online base64 encode/decode tool to get the password `mypassword9898!`
 
+- Also you can use `tcpdump` command to get the password
+
+```sh
+$ tcpdump -A 'port 587'
+...
+```
+
+- Use flag `-A` to print packet contents
+- Add expression `port 587` to filter packets and print only packets has dist/src port = 587
+
 ## Task 1
 
 - Use hydra tool to bruteforce the ssh account password for the user `sylvain`
