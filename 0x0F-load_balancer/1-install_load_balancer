@@ -16,12 +16,10 @@ sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
 config="
 frontend davenchy_frontend
 	bind *:80
-	mode tcp
 	default_backend davenchy_backend
 
 backend davenchy_backend
 	balance roundrobin
-	mode tcp
 	server 286473-web_01 54.165.85.96:80 check
 	server 286473-web_02 54.175.189.248:80 check
 "
