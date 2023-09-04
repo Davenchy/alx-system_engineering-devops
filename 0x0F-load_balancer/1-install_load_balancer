@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Configure HAProxy load balancer on Ubuntu Server
+
+# update system and install deps
+sudo apt-get -y update
+sudo apt-get -y install software-properties-common
+
+# install HAProxy and its repo
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
+sudo apt-get -y install haproxy=2.8.\*
+
+# enable HAProxy to start on system boot
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# configure HAProxy
+# use layer 4 load balancing
+sudo sed -i "s/mode\thttp/mode\ttcp/" /etc/haproxy/haproxy.cfg
+sudo sed -i "s/option\thttplog/option\ttcplog/" /etc/haproxy/haproxy.cfg
+
+# define frontend with my web servers
+config="
+frontend davenchy_frontend
+	bind *:80
+	default_backend davenchy_backend
+"
+echo "$config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# define backend with my web servers
+config="
+backend davenchy_backend
+	balance roundrobin
+	mode tcp
+	server web_01 54.165.85.96:80 check
+	server web_02 54.175.189.248:80 check
+"
+echo "$config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# apply changes
+pgrep -f haproxy && sudo service haproxy restart || sudo service haproxy start
