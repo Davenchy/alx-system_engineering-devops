@@ -36,4 +36,8 @@ backend davenchy_backend
 echo "$config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
 # apply changes
-pgrep -f haproxy && sudo service haproxy restart || sudo service haproxy start
+if [[ "$(pgrep -f haproxy)" ]]; then
+	sudo service haproxy restart
+else
+	sudo service haproxy start
+fi
