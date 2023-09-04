@@ -15,14 +15,16 @@ echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
 # configure NGINX to redirect /redirect_me to YouTube video page
 tab="$(echo -e '\t')"
+CONFIG_PATH="/etc/nginx/sites-enabled/default"
+mark_text="server_name _;"
+
 url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 rule="\n${tab}location /redirect_me {\n${tab}${tab}return 301 ${url};\n${tab}}"
-sudo sed -i "/server_name _;/a\ $rule" /etc/nginx/sites-enabled/default
+sudo sed -i "/$mark_text/a\ $rule $CONFIG_PATH"
 
 # configure NGINX to use custom error page
-mark_text="default_type application"
 text_to_inject="\n${tab}error_page 404 /404.html;"
-sudo sed -i "/$mark_text/a\ $text_to_inject" /etc/nginx/nginx.conf
+sudo sed -i "/$mark_text/a\ $text_to_inject $CONFIG_PATH"
 
 # start the NGINX service
 sudo service nginx start
