@@ -1,14 +1,38 @@
 #!/usr/bin/env bash
-# This script configures an Nginx server with a custom HTTP response header
+# This script configures an Nginx server with
+# A root page
+# An 404 error page
+# A redirection of /redirect_me to youtube video
+# A custom HTTP response header X-Served-By
 # shellcheck disable=SC2154
 
+# update local packages database and install NGINX
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# create index page
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
+# create 404 custom error page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# define configuration injection variables
 tab="$(echo -e '\t')"
 CONFIG_PATH="/etc/nginx/sites-enabled/default"
 mark_text="server_name _;"
+
+# configure NGINX to redirect /redirect_me to YouTube video page
+url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+rule="\n${tab}location /redirect_me {\n${tab}${tab}return 301 ${url};\n${tab}}"
+sudo sed -i "/$mark_text/a\ $rule" "$CONFIG_PATH"
+
+# configure NGINX to use custom error page
+text_to_inject="\n${tab}error_page 404 /404.html;"
+sudo sed -i "/$mark_text/a\ $text_to_inject" "$CONFIG_PATH"
 
 # configure NGINX to add X-Served-By header with the hostname variable
 text_to_inject="\n${tab}add_header X-Served-By \$hostname;"
 sudo sed -i "/$mark_text/a\ $text_to_inject" "$CONFIG_PATH"
 
 # start the NGINX service
-sudo service nginx restart
+sudo service nginx start
