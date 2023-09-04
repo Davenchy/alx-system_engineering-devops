@@ -32,8 +32,8 @@ exec { 'configure custom 404 error page':
   provider => 'shell',
 }
 
-exec { 'configure custom 404 error page':
-  command  => 'sed -i "42 a\ \tadd_header X-Served-By $HOSTNAME;\n" /etc/nginx/sites-enabled/default',
+exec { 'add X-Served-By header':
+  command  => 'sed -i "42 a\ \tadd_header X-Served-By \$hostname;\n" /etc/nginx/sites-enabled/default',
   user     => 'root',
   provider => 'shell',
 }
