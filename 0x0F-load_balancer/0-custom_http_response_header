@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script configures an Nginx server with a custom HTTP response header
+# shellcheck disable=SC2154
+
+tab="$(echo -e '\t')"
+CONFIG_PATH="/etc/nginx/sites-enabled/default"
+mark_text="server_name _;"
+
+# configure NGINX to add X-Served-By header with the hostname variable
+text_to_inject="\n${tab}add_header X-Served-By \$hostname;"
+sudo sed -i "/$mark_text/a\ $text_to_inject" "$CONFIG_PATH"
+
+# start the NGINX service
+sudo service nginx restart
