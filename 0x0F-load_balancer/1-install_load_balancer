@@ -21,8 +21,8 @@ frontend davenchy_frontend
 
 backend davenchy_backend
 	balance roundrobin
-	server 286473-web_01 54.165.85.96:80 check
-	server 286473-web_02 54.175.189.248:80 check
+	server 286473-web-01 54.165.85.96:80 check
+	server 286473-web-02 54.175.189.248:80 check
 "
 echo "$config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
