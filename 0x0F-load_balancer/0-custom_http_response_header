@@ -35,4 +35,4 @@ text_to_inject="\n${tab}add_header X-Served-By \$hostname;"
 sudo sed -i "/$mark_text/a\ $text_to_inject" "$CONFIG_PATH"
 
 # start the NGINX service
-sudo service nginx start
+sudo service nginx restart
