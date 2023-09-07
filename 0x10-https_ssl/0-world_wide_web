@@ -25,7 +25,7 @@ fi
 
 if [ -z "$subdomain" ];
 then
-	for subdomain in www lb_01 web_01 web_02; do
+	for subdomain in www lb-01 web-01 web-02; do
 		print_subdomain_info "$subdomain" "$domain"
 	done
 else
