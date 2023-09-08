@@ -35,11 +35,9 @@ defaults
 
 frontend www.davenchy.tech_ft
 	bind *:80
-	bind *:443 ssl crt /etc/ssl/www.davenchy.tech/www.davenchy.tech.pem
-	mode http
-
-	# Redirect if HTTPS is *not* used
-	redirect scheme https code 301 if !{ ssl_fc }
+	bind *:443 ssl crt /etc/haproxy/www.davenchy.tech.pem
+	http-request redirect scheme https unless { ssl_fc }
+	http-request set-header X-Forwarded-Proto https
 
 	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
 	use_backend letsencrypt-backend if letsencrypt-acl
