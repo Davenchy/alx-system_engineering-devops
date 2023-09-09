@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # For real I don't understand why Sylvain created such a task, it's humiliation
-pkill nginx
-sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-service nginx start
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
+pkill -9 nginx
