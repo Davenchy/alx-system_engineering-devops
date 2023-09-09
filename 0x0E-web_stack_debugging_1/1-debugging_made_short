@@ -2,4 +2,4 @@
 # For real I don't understand why Sylvain created such a task, it's humiliation
 sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
 sudo service nginx restart
-sudo killall5 -9 nginx  # sometimes ALX tasks is challenging
+pkill nginx
