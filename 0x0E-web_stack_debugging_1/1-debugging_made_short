@@ -2,4 +2,4 @@
 # For real I don't understand why Sylvain created such a task, it's humiliation
 sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
 sudo service nginx restart
-pkill nginx
+pkill --oldest nginx  # sometimes life has no meaning
