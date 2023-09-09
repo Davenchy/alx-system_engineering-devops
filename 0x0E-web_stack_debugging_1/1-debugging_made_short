@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # For real I don't understand why Sylvain created such a task, it's humiliation
 sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-sudo service nginx restart
-pkill -9 nginx
+sudo service nginx stop
+killall5 -9 nginx  # sometimes ALX tasks is challenging
