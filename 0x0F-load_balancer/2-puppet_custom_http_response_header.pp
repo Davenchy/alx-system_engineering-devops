@@ -1,13 +1,15 @@
 # Setup Ubuntu server with NGINX Web Server
 
 exec { 'apt update':
-  command  => 'apt-get update',
+  command  => 'apt-get -y update',
   user     => 'root',
   provider => 'shell',
 }
 
-package { 'nginx':
-  ensure => present,
+exec { 'install nginx':
+  command  => 'apt-get -y install nginx',
+  user     => 'root',
+  provider => 'shell',
 }
 
 file { '/var/www/html/index.nginx-debian.html':
