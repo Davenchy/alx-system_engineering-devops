@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# this script configure nginx to start by nginx user
+# configure nginx to use nginx user for subprocesses
+set -i "/user/c user nginx;" /etx/nginx/nginx.conf
+# change listening port to 8080 as required
+sed -i "s/80/8080/" /etc/nginx/sites-available/default
+# set the permission to the config file as the next: owner:rw, group:r, other:r
+chmod u+x 644 /etc/nginx/nginx.conf
+# by using netstat -l4pn found that apache is listening on port 8080
+# kill it so nginx can use that port
+pkill apache2
