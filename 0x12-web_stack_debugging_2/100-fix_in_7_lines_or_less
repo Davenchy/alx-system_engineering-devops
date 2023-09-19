@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# this script configure nginx to start by nginx user
+sed -i "/user/c user nginx;" /etc/nginx/nginx.conf
+sed -i "s/\([ |:]\)80 /\18080 /" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
+pkill apache2
+su nginx -s /bin/bash -c 'service nginx restart'
