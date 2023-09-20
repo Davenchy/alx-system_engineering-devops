@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Backup current databases to a compressed archive
+
+if [[ ! $1 ]]; then
+	echo "Usage: $0 <root_password>"
+	exit 1
+fi
+
+filename="backup.sql"
+sudo mysqldump -uroot -p"$1" --all-databases --result-file="$filename"
+tar -czvf "$(date +%d-%m-%Y).tar.gz" "$filename"
