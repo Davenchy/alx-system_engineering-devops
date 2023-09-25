@@ -8,18 +8,18 @@ import sys
 BASE_URL = "https://jsonplaceholder.typicode.com"
 
 
-def getUsername(user_id):
-    """ get username by its id
+def getUserInformation(user_id):
+    """ get user information by its id
 
     Args:
         user_id (int): user id
 
-    Returns: username(str)"""
+    Returns: user_info (dict)"""
 
     res = requests.get("{}/users/{}".format(BASE_URL, user_id))
     user_info = res.json()
 
-    return user_info.get("name")
+    return user_info
 
 
 def getTasks(user_id):
@@ -63,7 +63,7 @@ def saveCSV(user_id, username, tasks):
 
     Returns: None"""
 
-    with open("{}.csv".format(user_id), "w") as file:
+    with open("{}.csv".format(user_id), "w", newline="") as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
 
         # row format: "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
@@ -88,13 +88,15 @@ if __name__ == "__main__":
         exit(1)
 
     # get user information
-    username = getUsername(user_id)
+    user = getUserInformation(user_id)
+    name = user.get("name")
+    username = user.get("username")
     tasks = getTasks(user_id)
     completed_tasks_count = countCompletedTasks(tasks)
 
     # print user information
     print("Employee {} is done with tasks({}/{}):".format(
-        username, completed_tasks_count, len(tasks)))
+        name, completed_tasks_count, len(tasks)))
 
     # print completed tasks
     for task in tasks:
