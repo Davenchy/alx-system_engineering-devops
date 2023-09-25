@@ -46,7 +46,7 @@ def saveCSV(user_id, username, tasks):
 
     Returns: None"""
 
-    with open("{}.csv".format(user_id), "w", newline="") as file:
+    with open("{}.csv".format(user_id), "w") as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
 
         # row format: "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
