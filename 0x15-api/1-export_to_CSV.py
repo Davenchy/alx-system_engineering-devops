@@ -36,6 +36,23 @@ def getTasks(user_id):
     return tasks or list()
 
 
+def countCompletedTasks(tasks):
+    """ count completed tasks
+
+    Args:
+        tasks (list): list of tasks
+
+    Returns: completed_tasks_count (int)"""
+
+    completed_tasks_count = 0
+
+    for task in tasks:
+        if task.get("completed"):
+            completed_tasks_count += 1
+
+    return completed_tasks_count
+
+
 def saveCSV(user_id, username, tasks):
     """ generate csv and save it to file with name "USER_ID.csv"
 
@@ -73,6 +90,17 @@ if __name__ == "__main__":
     # get user information
     username = getUsername(user_id)
     tasks = getTasks(user_id)
+    completed_tasks_count = countCompletedTasks(tasks)
+
+    # print user information
+    print("Employee {} is done with tasks({}/{}):".format(
+        username, completed_tasks_count, len(tasks)))
+
+    # print completed tasks
+    for task in tasks:
+        if not task.get("completed"):
+            continue
+        print("\t {}".format(task.get("title")))
 
     # save to csv file
     saveCSV(user_id, username, tasks)
