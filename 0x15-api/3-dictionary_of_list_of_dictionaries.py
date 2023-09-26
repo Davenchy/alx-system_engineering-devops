@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Python script that fetch all users tasks and saves them into json file """
 
-import requests
 import json
+import requests
 import sys
 
 BASE_URL = "https://jsonplaceholder.typicode.com"
