@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Python script that takes user id and saves all tasks into csv file """
 
-import requests
 import csv
+import requests
 import sys
 
 BASE_URL = "https://jsonplaceholder.typicode.com"
