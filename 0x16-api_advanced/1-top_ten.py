@@ -11,6 +11,7 @@ def top_ten(subreddit):
     res = requests.get(
         f"https://www.reddit.com/r/{subreddit}/top.json?limit=10",
         headers={'User-Agent': 'alx:dev.davenchy:v1.0'},
+        allow_redirects=False,
     )
     if not res.ok:
         print("None")
