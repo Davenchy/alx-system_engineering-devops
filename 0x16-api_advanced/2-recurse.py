@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""fetch all redit hot posts of a subreddit"""
+"""fetch all reddit hot posts of a subreddit"""
 import requests
 
 
 def recurse(subreddit, hot_list=[], after=None, count=0):
-    """fetch all redit hot posts of a subreddit
+    """fetch all reddit hot posts of a subreddit
 
     Args:
         subreddit (str): the subreddit name
