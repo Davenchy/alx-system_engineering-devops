@@ -24,9 +24,10 @@ def count_words(subreddit, word_list, after=None, matches={}):
     if not res.ok:
         return
 
-    data = res.json()['data']
-    children = data.get('children')
-    titles = list(map(lambda c: c['data']['title'], children))
+    data = res.json().get('data', dict())
+    children = data.get('children', list())
+    titles = list(map(
+        lambda c: c.get('data', dict()).get('title', str()), children))
     after = data.get('after')
 
     for word in word_list:
