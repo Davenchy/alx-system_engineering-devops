@@ -22,7 +22,7 @@ def count_words(subreddit, word_list, after=None, matches={}):
     )
 
     if not res.ok:
-        return None
+        return
 
     data = res.json().get('data', dict())
     children = data.get('children', list())
@@ -42,6 +42,6 @@ def count_words(subreddit, word_list, after=None, matches={}):
         sorted_matches = sorted(matches.items(), key=lambda x: x[1],
                                 reverse=True)
         [print(f'{m[0]}: {m[1]}') for m in sorted_matches if m[1] > 0]
-        return None
+        return
 
     count_words(subreddit, word_list, after, matches)
