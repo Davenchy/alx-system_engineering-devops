@@ -22,12 +22,6 @@ upstream app_server_flaskapp {
 	server localhost:5000 fail_timeout=0;
 }
 
-# upstream data to a service listening on port 5001
-#
-upstream app_server_flaskapp_odd_or_even {
-	server localhost:5001 fail_timeout=0;
-}
-
 # Default server configuration
 #
 server {
@@ -80,8 +74,8 @@ server {
 		break;
 	}
 
-	location ~ /number_odd_or_even/\d+ {
-		proxy_pass http://app_server_flaskapp_odd_or_even;
+	location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+		proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
 		break;
 	}
 
