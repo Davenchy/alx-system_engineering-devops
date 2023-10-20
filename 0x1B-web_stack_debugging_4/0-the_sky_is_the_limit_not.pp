@@ -1,4 +1,6 @@
-file_path = '/etc/default/nginx'
+# this script increase the limit of nginx requests and restart the service
+
+$file_path = '/etc/default/nginx'
 $line = 'ULIMIT="-n 4096"'
 
 exec { 'modify the nginx limit':
